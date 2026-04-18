@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
-import { ImageWithFallback, VideoWithFallback } from './components/figma/ImageWithFallback';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { ShoppingBag, Menu, X, Heart, Sparkles } from 'lucide-react';
-import { Logo } from './components/Logo';
-import { ProductModal } from './components/ProductModal';
-import { CartDrawer } from './components/CartDrawer';
+import { useState, useEffect } from "react";
+import {
+  ImageWithFallback,
+  VideoWithFallback,
+} from "./components/figma/ImageWithFallback";
+import { motion, useScroll, useTransform } from "motion/react";
+import { ShoppingBag, Menu, X, Heart, Sparkles } from "lucide-react";
+import { Logo } from "./components/Logo";
+import { ProductModal } from "./components/ProductModal";
+import { CartDrawer } from "./components/CartDrawer";
 
 interface Product {
   id: number;
@@ -25,7 +28,7 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState("All");
   const [wishlist, setWishlist] = useState<Set<number>>(new Set());
   const [cart, setCart] = useState<CartItem[]>([]);
 
@@ -36,65 +39,77 @@ export default function App() {
   const jewelry: Product[] = [
     {
       id: 1,
-      name: 'Teardrop Earrings',
-      price: '$48',
-      image: 'https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      category: 'Earrings',
-      description: 'Elegant white and black leather teardrop earrings with a minimalist design.',
-      materials: 'Genuine leather, sterling silver hooks'
+      name: "Teardrop Earrings",
+      price: "$48",
+      image:
+        "https://images.unsplash.com/photo-1573227890085-12ab5d68a170?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      category: "Earrings",
+      description:
+        "Elegant white and black leather teardrop earrings with a minimalist design.",
+      materials: "Genuine leather, sterling silver hooks",
     },
     {
       id: 2,
-      name: 'Artisan Bracelets',
-      price: '$62',
-      image: 'https://images.unsplash.com/photo-1679590988898-50c20140aec0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      category: 'Bracelets',
-      description: 'Handwoven bracelets featuring traditional patterns and vibrant colors.',
-      materials: 'Cotton thread, natural beads'
+      name: "Artisan Bracelets",
+      price: "$62",
+      image:
+        "https://images.unsplash.com/photo-1679590988898-50c20140aec0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      category: "Bracelets",
+      description:
+        "Handwoven bracelets featuring traditional patterns and vibrant colors.",
+      materials: "Cotton thread, natural beads",
     },
     {
       id: 3,
-      name: 'Floral Necklace',
-      price: '$85',
-      image: 'https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      category: 'Necklaces',
-      description: 'A delicate necklace inspired by nature with floral accents.',
-      materials: 'Sterling silver, semi-precious stones'
+      name: "Floral Necklace",
+      price: "$85",
+      image:
+        "https://images.unsplash.com/photo-1722510825242-0d8f2064c2e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      category: "Necklaces",
+      description:
+        "A delicate necklace inspired by nature with floral accents.",
+      materials: "Sterling silver, semi-precious stones",
     },
     {
       id: 4,
-      name: 'Beaded Collection',
-      price: '$52',
-      image: 'https://images.unsplash.com/photo-1523252012848-c22188792c27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      category: 'Necklaces',
-      description: 'Colorful beaded necklaces that celebrate traditional craftsmanship.',
-      materials: 'Glass beads, cotton cord'
+      name: "Beaded Collection",
+      price: "$52",
+      image:
+        "https://images.unsplash.com/photo-1523252012848-c22188792c27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      category: "Necklaces",
+      description:
+        "Colorful beaded necklaces that celebrate traditional craftsmanship.",
+      materials: "Glass beads, cotton cord",
     },
     {
       id: 5,
-      name: 'Pearl Necklace',
-      price: '$95',
-      image: 'https://images.unsplash.com/photo-1659288735090-9fb9e3b68fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      category: 'Necklaces',
-      description: 'Timeless pearl necklace perfect for any occasion.',
-      materials: 'Freshwater pearls, silk thread'
+      name: "Pearl Necklace",
+      price: "$95",
+      image:
+        "https://images.unsplash.com/photo-1659288735090-9fb9e3b68fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      category: "Necklaces",
+      description: "Timeless pearl necklace perfect for any occasion.",
+      materials: "Freshwater pearls, silk thread",
     },
     {
       id: 6,
-      name: 'Curated Set',
-      price: '$120',
-      image: 'https://images.unsplash.com/photo-1528797664208-e5a8c0b98881?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      category: 'Sets',
-      description: 'A thoughtfully curated jewelry set for the discerning collector.',
-      materials: 'Mixed metals, natural stones'
-    }
+      name: "Curated Set",
+      price: "$120",
+      image:
+        "https://images.unsplash.com/photo-1528797664208-e5a8c0b98881?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      category: "Sets",
+      description:
+        "A thoughtfully curated jewelry set for the discerning collector.",
+      materials: "Mixed metals, natural stones",
+    },
   ];
 
-  const categories = ['All', 'Necklaces', 'Earrings', 'Bracelets', 'Sets'];
+  const categories = ["All", "Necklaces", "Earrings", "Bracelets", "Sets"];
 
-  const filteredJewelry = activeFilter === 'All'
-    ? jewelry
-    : jewelry.filter(item => item.category === activeFilter);
+  const filteredJewelry =
+    activeFilter === "All"
+      ? jewelry
+      : jewelry.filter((item) => item.category === activeFilter);
 
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
@@ -102,7 +117,7 @@ export default function App() {
   };
 
   const handleToggleWishlist = (productId: number) => {
-    setWishlist(prev => {
+    setWishlist((prev) => {
       const newWishlist = new Set(prev);
       if (newWishlist.has(productId)) {
         newWishlist.delete(productId);
@@ -114,13 +129,13 @@ export default function App() {
   };
 
   const handleAddToCart = (product: Product) => {
-    setCart(prev => {
-      const existingItem = prev.find(item => item.id === product.id);
+    setCart((prev) => {
+      const existingItem = prev.find((item) => item.id === product.id);
       if (existingItem) {
-        return prev.map(item =>
+        return prev.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
-            : item
+            : item,
         );
       }
       return [...prev, { ...product, quantity: 1 }];
@@ -131,16 +146,16 @@ export default function App() {
 
   const handleUpdateQuantity = (id: number, quantity: number) => {
     if (quantity === 0) {
-      setCart(prev => prev.filter(item => item.id !== id));
+      setCart((prev) => prev.filter((item) => item.id !== id));
     } else {
-      setCart(prev =>
-        prev.map(item => (item.id === id ? { ...item, quantity } : item))
+      setCart((prev) =>
+        prev.map((item) => (item.id === id ? { ...item, quantity } : item)),
       );
     }
   };
 
   const handleRemoveFromCart = (id: number) => {
-    setCart(prev => prev.filter(item => item.id !== id));
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -153,7 +168,9 @@ export default function App() {
         onClose={() => setIsModalOpen(false)}
         onAddToCart={handleAddToCart}
         onToggleWishlist={handleToggleWishlist}
-        isInWishlist={selectedProduct ? wishlist.has(selectedProduct.id) : false}
+        isInWishlist={
+          selectedProduct ? wishlist.has(selectedProduct.id) : false
+        }
       />
 
       <CartDrawer
@@ -174,15 +191,37 @@ export default function App() {
               className="flex items-center gap-3"
             >
               <Logo />
-              <a href='/'><span className="tracking-wider">KANTAMANI</span></a>
+              <a href="/">
+                <span className="tracking-wider">KANTAMANI</span>
+              </a>
             </motion.div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-12">
-              <a href="#collection" className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors">Collection</a>
-              <a href="#artisans" className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors">Artisans</a>
-              <a href="#about" className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors">About</a>
-              <a href="#contact" className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors">Contact</a>
+              <a
+                href="#collection"
+                className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors"
+              >
+                Collection
+              </a>
+              <a
+                href="#artisans"
+                className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors"
+              >
+                Artisans
+              </a>
+              <a
+                href="#about"
+                className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors"
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors"
+              >
+                Contact
+              </a>
               <button
                 onClick={() => setIsCartOpen(true)}
                 className="relative p-2 hover:bg-neutral-100 rounded-full transition-colors"
@@ -214,10 +253,34 @@ export default function App() {
             className="md:hidden bg-white border-t border-neutral-200 px-6 py-6"
           >
             <div className="flex flex-col gap-6">
-              <a href="#collection" className="text-sm tracking-wide" onClick={() => setMobileMenuOpen(false)}>Collection</a>
-              <a href="#artisans" className="text-sm tracking-wide" onClick={() => setMobileMenuOpen(false)}>Artisans</a>
-              <a href="#about" className="text-sm tracking-wide" onClick={() => setMobileMenuOpen(false)}>About</a>
-              <a href="#contact" className="text-sm tracking-wide" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+              <a
+                href="#collection"
+                className="text-sm tracking-wide"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Collection
+              </a>
+              <a
+                href="#artisans"
+                className="text-sm tracking-wide"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Artisans
+              </a>
+              <a
+                href="#about"
+                className="text-sm tracking-wide"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="text-sm tracking-wide"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
             </div>
           </motion.div>
         )}
@@ -225,18 +288,20 @@ export default function App() {
 
       {/* Hero Section with Parallax */}
       <section className="relative h-screen overflow-hidden">
-        <motion.div
-          style={{ y: heroY }}
-          className="absolute inset-0 z-0"
-        >
-          <VideoWithFallback
-            src="../../assets/hero-video.mp4"
+        <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
+          <ImageWithFallback
+            src="../../assets/hero-gif.gif"
+            alt="Hero"
+            className="w-full h-full object-cover"
+          />
+          {/* <VideoWithFallback
+            src="../../assets/hero-gif.gif"
             className="w-full h-full object-cover"
             autoPlay
             muted
             loop
             playsInline
-          />
+          /> */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-neutral-50" />
         </motion.div>
 
@@ -256,8 +321,8 @@ export default function App() {
                 <span className="italic font-light">with care</span>
               </h1>
               <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-                Each piece tells a story of traditional craftsmanship,
-                designed to celebrate your unique beauty.
+                Each piece tells a story of traditional craftsmanship, designed
+                to celebrate your unique beauty.
               </p>
               <motion.a
                 href="#collection"
@@ -294,8 +359,8 @@ export default function App() {
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-2 rounded-full text-sm tracking-wide transition-all ${
                   activeFilter === category
-                    ? 'bg-[#D4AF37] text-white'
-                    : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                    ? "bg-[#D4AF37] text-white"
+                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
                 }`}
               >
                 {category}
@@ -335,8 +400,12 @@ export default function App() {
                   >
                     <Heart
                       size={18}
-                      fill={wishlist.has(item.id) ? '#D4AF37' : 'none'}
-                      className={wishlist.has(item.id) ? 'text-[#D4AF37]' : 'text-neutral-700'}
+                      fill={wishlist.has(item.id) ? "#D4AF37" : "none"}
+                      className={
+                        wishlist.has(item.id)
+                          ? "text-[#D4AF37]"
+                          : "text-neutral-700"
+                      }
                     />
                   </button>
 
@@ -366,7 +435,9 @@ export default function App() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-5xl mb-6 tracking-tight">Meet Our Artisans</h2>
+            <h2 className="text-3xl md:text-5xl mb-6 tracking-tight">
+              Meet Our Artisans
+            </h2>
             <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
               The skilled hands and creative minds behind every piece
             </p>
@@ -375,23 +446,29 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-12">
             {[
               {
-                name: 'Maria Santos',
-                specialty: 'Metalwork & Wire Wrapping',
-                image: 'https://images.unsplash.com/photo-1602806271931-07e449a819bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-                story: '15 years of experience transforming precious metals into wearable art.'
+                name: "Maria Santos",
+                specialty: "Metalwork & Wire Wrapping",
+                image:
+                  "https://images.unsplash.com/photo-1602806271931-07e449a819bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+                story:
+                  "15 years of experience transforming precious metals into wearable art.",
               },
               {
-                name: 'Aisha Rahman',
-                specialty: 'Beadwork & Traditional Patterns',
-                image: 'https://images.unsplash.com/photo-1652446082939-f51ac617aadf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-                story: 'Preserving ancestral techniques passed down through four generations.'
+                name: "Aisha Rahman",
+                specialty: "Beadwork & Traditional Patterns",
+                image:
+                  "https://images.unsplash.com/photo-1652446082939-f51ac617aadf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+                story:
+                  "Preserving ancestral techniques passed down through four generations.",
               },
               {
-                name: 'Elena Kovač',
-                specialty: 'Stone Setting & Engraving',
-                image: 'https://images.unsplash.com/photo-1669255265771-04bb9697dbd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600',
-                story: 'Master craftswoman specializing in intricate gemstone arrangements.'
-              }
+                name: "Elena Kovač",
+                specialty: "Stone Setting & Engraving",
+                image:
+                  "https://images.unsplash.com/photo-1669255265771-04bb9697dbd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+                story:
+                  "Master craftswoman specializing in intricate gemstone arrangements.",
+              },
             ].map((artisan, index) => (
               <motion.div
                 key={artisan.name}
@@ -409,8 +486,12 @@ export default function App() {
                   />
                 </div>
                 <h3 className="text-xl mb-2 tracking-tight">{artisan.name}</h3>
-                <p className="text-[#D4AF37] text-sm mb-4">{artisan.specialty}</p>
-                <p className="text-neutral-600 text-sm leading-relaxed">{artisan.story}</p>
+                <p className="text-[#D4AF37] text-sm mb-4">
+                  {artisan.specialty}
+                </p>
+                <p className="text-neutral-600 text-sm leading-relaxed">
+                  {artisan.story}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -427,7 +508,9 @@ export default function App() {
             className="text-center mb-20"
           >
             <Sparkles className="mx-auto mb-6 text-[#D4AF37]" size={40} />
-            <h2 className="text-3xl md:text-5xl mb-6 tracking-tight">The Journey of Creation</h2>
+            <h2 className="text-3xl md:text-5xl mb-6 tracking-tight">
+              The Journey of Creation
+            </h2>
             <p className="text-neutral-600 text-lg">
               From raw materials to finished masterpiece
             </p>
@@ -436,23 +519,29 @@ export default function App() {
           <div className="space-y-16">
             {[
               {
-                step: '01',
-                title: 'Material Selection',
-                description: 'Ethically sourced metals, gemstones, and natural materials carefully chosen for quality and sustainability.',
-                image: 'https://images.unsplash.com/photo-1608112169461-48616144c894?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800'
+                step: "01",
+                title: "Material Selection",
+                description:
+                  "Ethically sourced metals, gemstones, and natural materials carefully chosen for quality and sustainability.",
+                image:
+                  "https://images.unsplash.com/photo-1608112169461-48616144c894?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
               },
               {
-                step: '02',
-                title: 'Handcrafting',
-                description: 'Traditional techniques meet contemporary design as our artisans shape each piece with precision and care.',
-                image: 'https://images.unsplash.com/photo-1766560360164-6be5d9c4de99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800'
+                step: "02",
+                title: "Handcrafting",
+                description:
+                  "Traditional techniques meet contemporary design as our artisans shape each piece with precision and care.",
+                image:
+                  "https://images.unsplash.com/photo-1766560360164-6be5d9c4de99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
               },
               {
-                step: '03',
-                title: 'Finishing & Quality',
-                description: 'Meticulous polishing, setting, and inspection ensure every detail meets our exacting standards.',
-                image: 'https://images.unsplash.com/photo-1766560359809-3a727c487fe6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800'
-              }
+                step: "03",
+                title: "Finishing & Quality",
+                description:
+                  "Meticulous polishing, setting, and inspection ensure every detail meets our exacting standards.",
+                image:
+                  "https://images.unsplash.com/photo-1766560359809-3a727c487fe6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+              },
             ].map((process, index) => (
               <motion.div
                 key={process.step}
@@ -461,13 +550,19 @@ export default function App() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className={`flex flex-col md:flex-row gap-12 items-center ${
-                  index % 2 === 1 ? 'md:flex-row-reverse' : ''
+                  index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 <div className="flex-1">
-                  <div className="text-6xl font-light text-[#D4AF37]/20 mb-4">{process.step}</div>
-                  <h3 className="text-2xl mb-4 tracking-tight">{process.title}</h3>
-                  <p className="text-neutral-600 leading-relaxed">{process.description}</p>
+                  <div className="text-6xl font-light text-[#D4AF37]/20 mb-4">
+                    {process.step}
+                  </div>
+                  <h3 className="text-2xl mb-4 tracking-tight">
+                    {process.title}
+                  </h3>
+                  <p className="text-neutral-600 leading-relaxed">
+                    {process.description}
+                  </p>
                 </div>
                 <div className="flex-1 aspect-video rounded-lg overflow-hidden bg-neutral-100">
                   <ImageWithFallback
@@ -497,20 +592,26 @@ export default function App() {
           <div className="grid md:grid-cols-3 gap-12">
             {[
               {
-                quote: 'The craftsmanship is extraordinary. Each piece feels personal and unique. I receive compliments every time I wear my necklace.',
-                author: 'Sarah Chen',
-                image: 'https://images.unsplash.com/photo-1763677593928-468dc9767e7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
+                quote:
+                  "The craftsmanship is extraordinary. Each piece feels personal and unique. I receive compliments every time I wear my necklace.",
+                author: "Sarah Chen",
+                image:
+                  "https://images.unsplash.com/photo-1763677593928-468dc9767e7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
               },
               {
-                quote: 'Beautiful, timeless pieces that tell a story. The attention to detail and quality is unmatched.',
-                author: 'Jessica Williams',
-                image: 'https://images.unsplash.com/photo-1763677594421-f58e50cce64d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
+                quote:
+                  "Beautiful, timeless pieces that tell a story. The attention to detail and quality is unmatched.",
+                author: "Jessica Williams",
+                image:
+                  "https://images.unsplash.com/photo-1763677594421-f58e50cce64d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
               },
               {
-                quote: 'I love knowing that my jewelry was made by skilled artisans using traditional techniques. It makes each piece even more special.',
-                author: 'Amanda Silva',
-                image: 'https://images.unsplash.com/photo-1758922584983-82ffd5720c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
-              }
+                quote:
+                  "I love knowing that my jewelry was made by skilled artisans using traditional techniques. It makes each piece even more special.",
+                author: "Amanda Silva",
+                image:
+                  "https://images.unsplash.com/photo-1758922584983-82ffd5720c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400",
+              },
             ].map((testimonial, index) => (
               <motion.div
                 key={testimonial.author}
@@ -532,7 +633,9 @@ export default function App() {
                     <p className="tracking-wide">{testimonial.author}</p>
                   </div>
                 </div>
-                <p className="text-neutral-600 leading-relaxed italic">"{testimonial.quote}"</p>
+                <p className="text-neutral-600 leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
               </motion.div>
             ))}
           </div>
@@ -581,16 +684,22 @@ export default function App() {
       </section>
 
       {/* Newsletter */}
-      <section id="contact" className="py-32 px-6 lg:px-12 bg-neutral-900 text-white">
+      <section
+        id="contact"
+        className="py-32 px-6 lg:px-12 bg-neutral-900 text-white"
+      >
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl mb-6 tracking-tight">Stay Connected</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 tracking-tight">
+              Stay Connected
+            </h2>
             <p className="text-white/80 mb-8">
-              Subscribe to receive updates on new collections and exclusive offers
+              Subscribe to receive updates on new collections and exclusive
+              offers
             </p>
             <div className="flex gap-3 max-w-md mx-auto">
               <input
@@ -622,26 +731,73 @@ export default function App() {
             <div>
               <h4 className="text-sm tracking-wide mb-4">Shop</h4>
               <div className="flex flex-col gap-3 text-sm text-white/60">
-                <a href="#collection" className="hover:text-[#D4AF37] transition-colors">All Jewelry</a>
-                <a href="#collection" className="hover:text-[#D4AF37] transition-colors">Necklaces</a>
-                <a href="#collection" className="hover:text-[#D4AF37] transition-colors">Earrings</a>
-                <a href="#collection" className="hover:text-[#D4AF37] transition-colors">Bracelets</a>
+                <a
+                  href="#collection"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  All Jewelry
+                </a>
+                <a
+                  href="#collection"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Necklaces
+                </a>
+                <a
+                  href="#collection"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Earrings
+                </a>
+                <a
+                  href="#collection"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Bracelets
+                </a>
               </div>
             </div>
             <div>
               <h4 className="text-sm tracking-wide mb-4">About</h4>
               <div className="flex flex-col gap-3 text-sm text-white/60">
-                <a href="#artisans" className="hover:text-[#D4AF37] transition-colors">Our Artisans</a>
-                <a href="#about" className="hover:text-[#D4AF37] transition-colors">Our Story</a>
-                <a href="#" className="hover:text-[#D4AF37] transition-colors">Sustainability</a>
-                <a href="#contact" className="hover:text-[#D4AF37] transition-colors">Contact</a>
+                <a
+                  href="#artisans"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Our Artisans
+                </a>
+                <a
+                  href="#about"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Our Story
+                </a>
+                <a href="#" className="hover:text-[#D4AF37] transition-colors">
+                  Sustainability
+                </a>
+                <a
+                  href="#contact"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Contact
+                </a>
               </div>
             </div>
             <div>
               <h4 className="text-sm tracking-wide mb-4">Connect</h4>
               <div className="flex flex-col gap-3 text-sm text-white/60">
-                <a href="https://www.instagram.com/kantamani_5?igsh=MXhqaDI4dmhidHRzcw==" className="hover:text-[#D4AF37] transition-colors">Instagram</a>
-                <a href="mailto:ppsowmya1815@gmail.com" className="hover:text-[#D4AF37] transition-colors">Email Us</a>
+                <a
+                  href="https://www.instagram.com/kantamani_5?igsh=MXhqaDI4dmhidHRzcw=="
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="mailto:ppsowmya1815@gmail.com"
+                  className="hover:text-[#D4AF37] transition-colors"
+                >
+                  Email Us
+                </a>
               </div>
             </div>
           </div>
