@@ -33,7 +33,7 @@ export function VideoWithFallback(props: React.VideoHTMLAttributes<HTMLVideoElem
     setDidError(true)
   }
 
-  const { src, style, className, controls = true, ...rest } = props
+  const { src, style, className, controls = false, ...rest } = props
 
   return didError ? (
     <div
