@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { ImageWithFallback, VideoWithFallback } from './components/figma/ImageWithFallback';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ShoppingBag, Menu, X, Heart, Sparkles } from 'lucide-react';
 import { Logo } from './components/Logo';
@@ -229,10 +229,13 @@ export default function App() {
           style={{ y: heroY }}
           className="absolute inset-0 z-0"
         >
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1758922584983-82ffd5720c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
-            alt="Hero"
+          <VideoWithFallback
+            src="../../assets/hero-video.mp4"
             className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-neutral-50" />
         </motion.div>
