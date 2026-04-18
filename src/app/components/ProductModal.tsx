@@ -94,7 +94,7 @@ export function ProductModal({
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                {/* <div className="flex gap-3">
                   <button
                     onClick={() => onAddToCart(product)}
                     className="flex-1 bg-neutral-900 text-white py-4 px-6 rounded-lg hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2"
@@ -112,7 +112,7 @@ export function ProductModal({
                   >
                     <Heart size={18} fill={isInWishlist ? '#D4AF37' : 'none'} />
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>

@@ -226,7 +226,7 @@ export default function App() {
                 onClick={() => setIsCartOpen(true)}
                 className="relative p-2 hover:bg-neutral-100 rounded-full transition-colors"
               >
-                <ShoppingBag size={20} />
+                {/* <ShoppingBag size={20} /> */}
                 {cartItemCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-[#D4AF37] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                     {cartItemCount}
@@ -289,19 +289,14 @@ export default function App() {
       {/* Hero Section with Parallax */}
       <section className="relative h-screen overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
-          <ImageWithFallback
-            src="../../assets/hero-gif.gif"
-            alt="Hero"
-            className="w-full h-full object-cover"
-          />
-          {/* <VideoWithFallback
-            src="../../assets/hero-gif.gif"
+           <VideoWithFallback
+            src="https://giftcard-assets-00.s3.us-east-1.amazonaws.com/hero-video.MP4"
             className="w-full h-full object-cover"
             autoPlay
             muted
             loop
             playsInline
-          /> */}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-neutral-50" />
         </motion.div>
 
@@ -391,7 +386,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
 
                   {/* Wishlist Button */}
-                  <button
+                  {/* <button
                     onClick={(e) => {
                       e.stopPropagation();
                       handleToggleWishlist(item.id);
@@ -407,7 +402,7 @@ export default function App() {
                           : "text-neutral-700"
                       }
                     />
-                  </button>
+                  </button> */}
 
                   {/* Quick View Indicator */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
