@@ -205,12 +205,12 @@ export default function App() {
               >
                 Collection
               </a>
-              <a
+              {/* <a
                 href="#artisans"
                 className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors"
               >
                 Artisans
-              </a>
+              </a> */}
               <a
                 href="#about"
                 className="text-sm tracking-wide hover:text-[#D4AF37] transition-colors"
@@ -261,13 +261,13 @@ export default function App() {
               >
                 Collection
               </a>
-              <a
+              {/* <a
                 href="#artisans"
                 className="text-sm tracking-wide"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Artisans
-              </a>
+              </a> */}
               <a
                 href="#about"
                 className="text-sm tracking-wide"
@@ -290,7 +290,7 @@ export default function App() {
       {/* Hero Section with Parallax */}
       <section className="relative h-screen overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
-           <VideoWithFallback
+          <VideoWithFallback
             src="https://giftcard-assets-00.s3.us-east-1.amazonaws.com/hero-video.MP4"
             className="w-full h-full object-cover"
             autoPlay
@@ -317,8 +317,10 @@ export default function App() {
                 <span className="italic font-light">with care</span>
               </h1>
               <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-                Each piece tells a story of traditional craftsmanship, designed
-                to celebrate your unique beauty.
+                Welcome to our exquisite collection of anti-tarnish jewelry,
+                where enduring beauty meets lasting quality. Our pieces are
+                crafted with innovative technology to resist tarnishing,
+                ensuring your jewelry retains its brilliance for years to come.
               </p>
               <motion.a
                 href="#collection"
@@ -423,7 +425,7 @@ export default function App() {
       </section>
 
       {/* Artisan Spotlight */}
-      <section id="artisans" className="py-32 px-6 lg:px-12 bg-neutral-50">
+      {/* <section id="artisans" className="py-32 px-6 lg:px-12 bg-neutral-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -492,7 +494,7 @@ export default function App() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Materials & Process Timeline */}
       <section className="py-32 px-6 lg:px-12 bg-white">
@@ -649,19 +651,22 @@ export default function App() {
             className="text-center"
           >
             <h2 className="text-3xl md:text-5xl mb-8 tracking-tight">
-              Timeless Elegance
+              Meet the Founder
             </h2>
             <p className="text-neutral-600 text-lg leading-relaxed mb-6">
-              We believe in slow fashion and mindful creation. Every piece is
-              thoughtfully designed and handcrafted by skilled artisans using
-              traditional techniques passed down through generations.
+              Kantamani was founded in 2025 by Soumya Pachalla, a 24-year-old
+              with a deep-rooted passion for fine jewelry and timeless
+              sophistication. With a vision to redefine affordable luxury, I set
+              out to create designs that are not only visually stunning but also
+              made to endure-beyond trends and time.
             </p>
             <p className="text-neutral-600 text-lg leading-relaxed mb-12">
-              Our jewelry celebrates individuality, combining contemporary
-              aesthetics with timeless craftsmanship.
+              Every Kantamani piece reflects my commitment to exceptional
+              craftsmanship, lasting beauty, and effortless elegance-bringing
+              you jewelry that feels as special as it looks.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-12 mt-16 text-center">
+            {/* <div className="grid md:grid-cols-3 gap-12 mt-16 text-center">
               <div>
                 <div className="text-4xl text-[#D4AF37] mb-3">100%</div>
                 <p className="text-neutral-600">Handcrafted</p>
@@ -674,13 +679,13 @@ export default function App() {
                 <div className="text-4xl text-[#D4AF37] mb-3">Lifetime</div>
                 <p className="text-neutral-600">Guarantee</p>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
 
       {/* Newsletter */}
-      <section
+      {/* <section
         id="contact"
         className="py-32 px-6 lg:px-12 bg-neutral-900 text-white"
       >
@@ -709,7 +714,7 @@ export default function App() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <Footer />
